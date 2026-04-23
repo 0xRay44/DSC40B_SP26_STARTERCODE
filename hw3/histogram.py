@@ -1,10 +1,13 @@
 def histogram(points, bins):
-    """Efficiently computes a histogram.
+    n = len(points)
+    densities = []
+    i = 0
 
-    Assumes that both `points` and `bins` are sorted in ascending order to
-    avoid looping through all bins for each point.
+    for a, b in bins:
+        count = 0
+        while i < n and points[i] < b:
+            count += 1
+            i += 1
+        densities.append(count / (n * (b - a)))
 
-    """
-    # TODO: Implement the histogram function
-    
-    return None
+    return densities
